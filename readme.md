@@ -1,6 +1,6 @@
 # Query Mind
 
-**[Query Mind](querymind.netlify.app)** is a powerful NLP-powered Question Answering web app that uses the advanced BERT model from Google to deliver instant, accurate answers to any question you may have. With Query Mind, you can unlock the power of NLP with ease and revolutionize the way you extract information and uncover insights.
+**[Query Mind](https://querymind.netlify.app/)** is a powerful NLP-powered Question Answering web app that uses the advanced BERT model from Google to deliver instant, accurate answers to any question you may have. With Query Mind, you can unlock the power of NLP with ease and revolutionize the way you extract information and uncover insights.
 
 ## Key Features
 
