@@ -6,6 +6,11 @@ module.exports = {
       fontFamily: {
         default: ["Josefin Sans"],
       },
+      animation: {
+        "pulse-slow": "ping .5s linear infinite",
+        "pulse-medium": "ping .6s linear infinite",
+        "pulse-fast": "ping .7s linear infinite",
+      },
     },
   },
   plugins: [require("daisyui")],
