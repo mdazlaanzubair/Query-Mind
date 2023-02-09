@@ -7,7 +7,7 @@ const Loader = () => {
       <div className="flex-col justify-center hero-content lg:flex-row">
         <CircleLoader color="#e779c1" />
         <h1 className="text-xl">
-          Please wait while Neural Net is loading{" "}
+          Please wait while Query Mind is preparing{" "}
           <span className=" mr-1 animate-pulse-slow">.</span>
           <span className=" mr-1 animate-pulse-medium">.</span>
           <span className=" mr-1 animate-pulse-fast">.</span>

@@ -3,17 +3,21 @@ import { useRef, useState } from "react";
 
 const Analyser = ({ qna }) => {
   // creating refs for inputs
-  const para = useRef(null);
-  const query = useRef(null);
+  const paraRef = useRef(null);
+  const queryRef = useRef(null);
 
   // states of the app
-  const [ans, setAns] = useState();
+  const [answers, setAnswers] = useState([]);
 
   // function collect user input and generate response by spinning up the model
-  const doAnalysis = () => {
-    console.log("User inputs");
-    console.log(para.current.value);
-    console.log(query.current.value);
+  const doAnalysis = async () => {
+    const para = paraRef.current.value;
+    const query = queryRef.current.value;
+    console.log(qna);
+
+    const findedAns = await qna.findAnswers(query, para);
+    console.log(findedAns);
+    setAnswers(findedAns);
   };
 
   return (
@@ -43,7 +47,7 @@ const Analyser = ({ qna }) => {
                 </label>
                 <textarea
                   type="text"
-                  ref={para}
+                  ref={paraRef}
                   className="textarea h-24 textarea-bordered focus:border-secondary focus:outline-none"
                   placeholder="Paste here the para you want to explore..."
                 ></textarea>
@@ -54,7 +58,7 @@ const Analyser = ({ qna }) => {
                 </label>
                 <input
                   type="text"
-                  ref={query}
+                  ref={queryRef}
                   placeholder="What's your query?"
                   className="input input-bordered focus:border-secondary focus:outline-none"
                 />
@@ -72,11 +76,32 @@ const Analyser = ({ qna }) => {
           </div>
         </div>
       </section>
-      <section id="answers" className="hero min-h-fit">
-        <div className="flex-col justify-center hero-content lg:flex-row px-20 space-x-5">
-          <div className="text-center lg:text-left"></div>
-        </div>
-      </section>
+
+      {answers.length > 0 ? (
+        <section id="answers" className="min-h-fit my-5 justify-start">
+          <div className="flex-row justify-start lg:flex-row px-20 space-x-7 space-y-5 ">
+            <h1 className="text-3xl font-bold">Answers</h1>
+            {answers?.map((answer, index) => (
+              <div
+                className="alert bg-transparent hover:shadow-2xl text-left"
+                key={index}
+              >
+                <div className="flex-1">
+                  {index}
+                  <label className="mx-3">{answer.text}</label>
+                </div>
+                <div className="flex-none">
+                  <button className="btn btn-sm btn-outline btn-secondary">
+                    Copy
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : (
+        ""
+      )}
     </>
   );
 };

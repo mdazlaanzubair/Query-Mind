@@ -8,16 +8,17 @@ import Analyser from "./components/Analyser";
 function App() {
   const [model, setModel] = useState(null);
 
-  // load model as the app component loaded
+  // function to load qna model
+  const loadQnaModel = async () => {
+    const loadedModel = await qna.load();
+    setModel(loadedModel);
+    console.log("Model loaded successfully!");
+    console.log(qna);
+    return;
+  };
+
   useEffect(() => {
-    // using try-catch since its an async call
-    try {
-      setModel(qna.load());
-      console.log("Model loaded successfully!");
-    } catch (error) {
-      console.log("An error has encountered!");
-      console.log("Error:", error);
-    }
+    loadQnaModel();
   }, []);
 
   return (
