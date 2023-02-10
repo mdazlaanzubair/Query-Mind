@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tensorflow-models/qna": "^1.0.1",
-    "@tensorflow/tfjs": "^4.2.0",
+    "@tensorflow/tfjs": "^2.4.0",
     "daisyui": "^2.50.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
